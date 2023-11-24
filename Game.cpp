@@ -1,6 +1,6 @@
 // Game.cpp
 #include "Game.h"
-#include <GL/glut.h>
+#include <glut.h>
 #include <iostream>
 
 Game::Game() {
