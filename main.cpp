@@ -23,6 +23,13 @@ float rightPadX = 0.94f;
 float rightPadY = 0.0f;
 float padSpeed = 0.035f;
 
+bool reset = false;
+int countdown = 60;
+
+int scorePlayer1 = 0;
+int scorePlayer2 = 0;
+bool gameOver = false;
+
 PingPongBall ball;  // Create an instance of PingPongBall
 
 void score() {
