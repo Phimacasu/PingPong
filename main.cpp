@@ -2,6 +2,7 @@
 #include <cmath>
 #include <ctime>
 #include <string>
+#include <windows.h>
 #include "PingPongBall.h"
 
 // Game class declaration (assuming it's defined in "Game.h")

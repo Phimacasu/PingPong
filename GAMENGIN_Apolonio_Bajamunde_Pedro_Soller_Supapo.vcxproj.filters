@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Pong_SFX">
+      <UniqueIdentifier>{da7eecc8-5cc6-4e69-8e6c-b36123386432}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -44,5 +47,40 @@
     <ClCompile Include="PingPongBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Pong_SFX\Button_Down.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Collide_1.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Collide_2.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Collide_3.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Match_Point.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Score_1.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Score_3.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Select_1.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Win_0.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Win_1.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
+    <Media Include="Pong_SFX\Win_2.wav">
+      <Filter>Pong_SFX</Filter>
+    </Media>
   </ItemGroup>
 </Project>
