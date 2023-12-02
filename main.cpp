@@ -194,7 +194,7 @@ void display() {
 
     // Draw paddles
     paddle();
-
+    score();
     glutSwapBuffers();
 }
 
@@ -207,7 +207,9 @@ void init() {
 
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
+    glutInitWindowSize(600, 600);
+    glutInitWindowPosition(0, 0);
     glutCreateWindow("Pong Game");
 
     glutDisplayFunc(display);
