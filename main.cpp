@@ -86,14 +86,14 @@ if (!gameOver) {
     if (ball.getX() + ball.getRadius() < leftPadX || ball.getX() - ball.getRadius() > rightPadX) {
         ball.reset(0.0f, 0.0f);
     }
-        if (posX > 0.95f) {
+    if (ball.getX() > 0.95f) {
         reset = true;
         posX = 0.0f;
         posY = 0.0f;
         scorePlayer1++;
     }
 
-    if (posX < -0.95f) {
+    if (ball.getX() < -0.95f) {
         reset = true;
         posX = 0.0f;
         posY = 0.0f;
