@@ -1,5 +1,6 @@
 // PingPongBall.cpp
 #include "PingPongBall.h"
+#include <windows.h>
 
 PingPongBall::PingPongBall() : x(0.0f), y(0.0f), speedX(0.005f), speedY(0.005f), radius(0.05f) {}
 
@@ -13,10 +14,12 @@ void PingPongBall::move(float leftPadX, float leftPadY, float leftPadWidth, floa
     // Check for collisions with the walls
     if (x + radius > 1.0f || x - radius < -1.0f) {
         speedX = -speedX;
+        PlaySound(L"Pong_SFX\\Collide_1.wav", NULL, SND_FILENAME | SND_ASYNC);
     }
 
     if (y + radius > 1.0f || y - radius < -1.0f) {
         speedY = -speedY;
+        PlaySound(L"Pong_SFX\\Collide_2.wav", NULL, SND_FILENAME | SND_ASYNC);
     }
 
     // Collision with left paddle
@@ -25,6 +28,7 @@ void PingPongBall::move(float leftPadX, float leftPadY, float leftPadWidth, floa
         y - radius < leftPadY &&
         y + radius > leftPadY - leftPadHeight) {
         speedX = -speedX;
+        PlaySound(L"Pong_SFX\\Collide_3.wav", NULL, SND_FILENAME | SND_ASYNC);
     }
 
     // Collision with right paddle
@@ -33,6 +37,7 @@ void PingPongBall::move(float leftPadX, float leftPadY, float leftPadWidth, floa
         y - radius < rightPadY &&
         y + radius > rightPadY - rightPadHeight) {
         speedX = -speedX;
+        PlaySound(L"Pong_SFX\\Collide_4.wav", NULL, SND_FILENAME | SND_ASYNC);
     }
 }
 

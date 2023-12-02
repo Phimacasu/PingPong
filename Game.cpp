@@ -2,6 +2,8 @@
 #include "Game.h"
 #include <glut.h>
 #include <iostream>
+#include <windows.h>
+
 
 Game::Game() {
     // Initialization code
