@@ -1,6 +1,7 @@
 #include <glut.h>
 #include <cmath>
 #include <ctime>
+#include <string>
 #include "PingPongBall.h"
 
 // Game class declaration (assuming it's defined in "Game.h")
@@ -24,7 +25,40 @@ float padSpeed = 0.035f;
 
 PingPongBall ball;  // Create an instance of PingPongBall
 
+void score() {
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glRasterPos2f(-0.2f, 0.8f);
+    std::string scoreText = "Player 1: " + std::to_string(scorePlayer1);
+    for (char c : scoreText) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+
+    glRasterPos2f(0.1f, 0.8f);
+    scoreText = "Player 2: " + std::to_string(scorePlayer2);
+    for (char c : scoreText) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+
+
+    if (gameOver) {
+        glRasterPos2f(-0.1f, 0.5f);
+        std::string winnerText = (scorePlayer1 >= 10) ? "Player 1 wins!" : "Player 2 wins!";
+        for (char c : winnerText) {
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+        }
+    }
+}
+
 void update(int value) {
+if (!gameOver) {
+    if (reset) {
+        countdown--;
+        if (countdown <= 0) {
+            reset = false;
+            countdown = 60;
+        }
+    }
+   else{
     ball.move(leftPadX, leftPadY, Width, Height, rightPadX, rightPadY, Width, Height);
     if ((ball.getX() - ball.getRadius() < leftPadX + Width &&
         ball.getX() + ball.getRadius() > leftPadX &&
@@ -45,9 +79,27 @@ void update(int value) {
     if (ball.getX() + ball.getRadius() < leftPadX || ball.getX() - ball.getRadius() > rightPadX) {
         ball.reset(0.0f, 0.0f);
     }
+        if (posX > 0.95f) {
+        reset = true;
+        posX = 0.0f;
+        posY = 0.0f;
+        scorePlayer1++;
+    }
 
-    // Additional game logic if needed
+    if (posX < -0.95f) {
+        reset = true;
+        posX = 0.0f;
+        posY = 0.0f;
+        scorePlayer2++;
+    }
+
+    if (scorePlayer1 >= 10 || scorePlayer2 >= 10) {
+        gameOver = true;
+    	}
+    }
+  
     glutTimerFunc(16, update, 0);
+}
     glutPostRedisplay();
 }
 
