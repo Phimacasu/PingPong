@@ -1,20 +1,24 @@
 // PingPongBall.h
-#ifndef PINGPONGBALL_H
-#define PINGPONGBALL_H
+#pragma once
 
 class PingPongBall {
-public:
-    PingPongBall(float startX, float startY);
-    void move();
-    void reset(float startX, float startY);
-    float getX();
-    float getY();
-    float getRadius();
-
 private:
-    float x, y;  // Ball coordinates
-    float speedX, speedY;  // Ball speed
-    float radius;  // Ball radius
-};
+    float x;
+    float y;
+    float speedX;
+    float speedY;
+    float radius;
 
-#endif
+public:
+    PingPongBall();
+    PingPongBall(float startX, float startY);
+
+    void move(float leftPadX, float leftPadY, float leftPadWidth, float leftPadHeight,
+        float rightPadX, float rightPadY, float rightPadWidth, float rightPadHeight);
+    void reset(float startX, float startY);
+
+    float getX() const;
+    float getY() const;
+    float getRadius() const;
+    void reverseX();  // Added function to reverse the ball's X direction
+};

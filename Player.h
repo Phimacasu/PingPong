@@ -4,16 +4,17 @@
 
 class Player {
 public:
+    Player();                    // Default constructor
     Player(float startX, float startY);
-    void moveUp();
-    void moveDown();
+    void moveUp(bool player1Input);   // Updated to take input parameter
+    void moveDown(bool player1Input); // Updated to take input parameter
     float getY();
     int getScore();
     void increaseScore();
 
 private:
     float x, y;  // Player's coordinates
-    int score;  // Player's score
+    int score;   // Player's score
 };
 
-#endif
+#endif // PLAYER_H
